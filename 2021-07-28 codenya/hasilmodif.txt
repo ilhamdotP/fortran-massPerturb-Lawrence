@@ -1,0 +1,43 @@
+HASIL CEK
+
+sebelum diubah:
+      FOURTHREE=2.D0*(XA**3)
+     &     *(EJ**2)*(OMEGABAR*DOMEGABAR)*(XA-2.D0*GS*MSS*MASST)
+     
+      FOUR=(1.D0/3.D0)
+     &     *((FOURONE+FOURTWO+FOURTHREE)/(XA-2.D0*GS*MSS*MASST))
+     &     -(FOURFOUR)/((XA-2.D0*GS*MSS*MASST)**2)
+	 
+setelah diubah:
+      FOURTHREE=2.D0*(XA**3)*(EJ**2)*(OMEGABAR*DOMEGABAR)
+      
+      FOUR=(1.D0/3.D0)
+     &     *((FOURONE+FOURTWO+FOURTHREE)/(XA-2.D0*GS*MSS*MASST)
+     &     -(FOURFOUR)/((XA-2.D0*GS*MSS*MASST)**2))
+
+
+Hasil run untuk PC=300 saja (atas: sebelum diubah; bawah: sudah diubah)
+ 
+          PCC                        ROT                          PMIN
+   300.00000000000000      -0.98753775277429690        1.0000000000000001E-009
+   300.00000000000000      -0.98753775277429690        1.0000000000000001E-009
+
+          ROS2                      GMOS2                     MNURT
+   10.833000999721683        2.0300123642814061      -0.40313250512514393
+   10.833000999721683        2.0300123642814061      -0.40313250512514393
+
+          OMGA                      KP                            O
+  0.34366738315588891        151923291179.28217        4.8550723851279176E-005
+  0.34366738315588891        151923291179.28217        4.8550723851279176E-005
+
+           Po (!!)                    Mo (!)                    V
+   55.795914993787463        4.0562927027332503E-002  0.87614332271771678
+   2.9753816431431136E-002   4.0559782306021017E-002  0.87614332271771678
+
+           W                        Z (!!)                   X (!!!)
+  -1.4164544922944138        969.53201887919829        934.13161584674549
+  -1.4164544922944138        24.104697724997017       -11.295705307455741
+
+
+Tapi problem belum hilang: 
+	  RTOTP/RTOTE > 1   menjadi  RTOTP/RTOTE < -1   ---->  ECCEN tetap NaN
